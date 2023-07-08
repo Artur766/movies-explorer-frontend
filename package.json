@@ -36,9 +36,9 @@
       "last 1 chrome version",
       "last 1 firefox version",
       "last 1 safari version"
-    ],
-    "homepage": "https://artur766.github.io/movies-explorer-frontend/"
+    ]
   },
+  "homepage": "https://artur766.github.io/movies-explorer-frontend/",
   "devDependencies": {
     "gh-pages": "^5.0.0"
   }
