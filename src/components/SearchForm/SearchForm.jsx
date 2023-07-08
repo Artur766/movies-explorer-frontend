@@ -8,6 +8,7 @@ function SearchForm() {
         <div className='serch-form__wrapper'>
           <input className='serch-form__input' type="text" placeholder='Фильм' required />
           <button className='serch-form__button' type='submit'>Найти</button>
+          <div className='serch-form__border'></div>
         </div>
         <div className='serch-form__short'>
           <label className="serch-form__toggle">
