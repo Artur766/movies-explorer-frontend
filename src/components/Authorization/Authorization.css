@@ -1,0 +1,150 @@
+.authorization {
+  max-width: 396px;
+  margin: 0 auto;
+  padding: 70px 0 0;
+}
+
+.authorization__logo {
+  width: 38px;
+  height: 38px;
+  object-fit: cover;
+  cursor: pointer;
+}
+
+.authorization__logo:hover {
+  opacity: 0.6;
+}
+
+.authorization__title {
+  font-size: 24px;
+  font-weight: 500;
+  line-height: normal;
+  margin: 40px 0;
+}
+
+.authorization__form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.authorization__label {
+  color: #8B8B8B;
+  font-size: 10px;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.authorization__input {
+  color: #fff;
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid #424242;
+  width: 396px;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: normal;
+  padding: 5px 0 10px;
+}
+
+.authorization__input:focus {
+  border-bottom: 1px solid #4285F4;
+  outline: none;
+}
+
+.authorization__input_type_error {
+  border-bottom-color: red;
+}
+
+.authorization__error_visable {
+  color: #FF0000;
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 12px;
+  display: block;
+  padding: 6px 0;
+  min-height: 12px;
+}
+
+.authorization__submit-btn {
+  margin-top: 128px;
+  width: 100%;
+  height: 45px;
+  border: none;
+  padding: 0;
+  border-radius: 3px;
+  background: #4285F4;
+  color: #FFF;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: normal;
+  cursor: pointer;
+}
+
+.authorization__submit-btn:hover {
+  opacity: 0.6;
+}
+
+.authorization__submit-btn_type_register {
+  margin-top: 197px;
+}
+
+.authorization__text {
+  text-align: center;
+  margin: 16px 0 0;
+  color: #8B8B8B;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.authorization__link {
+  color: #4285F4;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: normal;
+  text-decoration: none;
+}
+
+.authorization__submit-btn_disablded {
+  opacity: 0.2;
+  cursor: default;
+}
+
+.authorization__submit-btn_disablded:hover {
+  opacity: 0.2;
+}
+
+
+@media screen and (max-width:768px) {
+  .authorization {
+    padding-top: 232px;
+  }
+}
+
+@media screen and (max-width:420px) {
+  .authorization {
+    max-width: 260px;
+    padding-top: 56px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .authorization__title {
+    margin: 50px 0 80px;
+  }
+
+  .authorization__input {
+    max-width: 260px;
+  }
+
+  .authorization__text {
+    margin-top: 14px;
+    font-size: 12px;
+  }
+
+  .authorization__link {
+    font-size: 12px;
+  }
+}
