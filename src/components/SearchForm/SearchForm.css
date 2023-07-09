@@ -130,6 +130,10 @@
   font-weight: 400;
   line-height: 20px;
   margin-left: 44px;
+}
+
+.serch-form__input:focus {
+  border-bottom: 1px solid #4285F4;
   outline: none;
 }
 
@@ -149,14 +153,16 @@
   border-radius: 0 9px 9px 0;
 }
 
-@media screen and (max-width:768px) {
+@media screen and (max-width:1150px) {
+  .serch-form {
+    padding: 80px 70px 109px;
+  }
+}
+
+@media screen and (max-width:860px) {
   .serch-form {
     max-width: 708px;
-    padding: 80px 0 109px;
-  }
-
-  .serch-form__input {
-    width: 400px;
+    padding: 80px 30px 109px;
   }
 
   .serch-form__short {
@@ -168,8 +174,6 @@
   .serch-form__button {
     margin-right: 30px;
   }
-
-
 }
 
 @media screen and (max-width:735px) {
@@ -204,9 +208,9 @@
 
 @media screen and (max-width:436px) {
   .serch-form {
+    padding: 80px 0px 44px;
     max-width: 300px;
   }
-
 
   .serch-form__button {
     margin-right: 19px;

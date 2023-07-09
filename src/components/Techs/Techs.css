@@ -55,9 +55,15 @@
   font-weight: 400;
 }
 
+@media screen and (max-width:1150px) {
+  .technologies {
+    padding: 100px 70px;
+  }
+}
+
 @media screen and (max-width:768px) {
   .technologies {
-    padding: 90px 0;
+    padding: 90px 30px;
   }
 
   .technologies__title {

@@ -32,7 +32,7 @@
   column-gap: 20px;
 }
 
-.footer_link {
+.footer__link {
   color: #FFFFFF;
   font-size: 13px;
   line-height: 16px;
@@ -40,15 +40,23 @@
   text-decoration: none;
 }
 
+@media screen and (max-width:1150px) {
+  .footer {
+    padding: 79px 70px 20px;
+  }
+}
+
 @media screen and (max-width:768px) {
   .footer {
     max-width: 708px;
+    padding: 79px 30px 20px;
   }
 }
 
 @media screen and (max-width:320px) {
   .footer {
     max-width: 300px;
+    padding: 79px 0 20px;
   }
 
   .footer__title {
@@ -70,7 +78,7 @@
     row-gap: 12px;
   }
 
-  .footer_link {
+  .footer__link {
     font-size: 12px;
     line-height: 15px;
   }

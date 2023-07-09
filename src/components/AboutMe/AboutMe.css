@@ -59,10 +59,16 @@
   text-decoration: none;
 }
 
+@media screen and (max-width:1150px) {
+  .about-me {
+    padding: 110px 70px;
+  }
+}
+
 
 @media screen and (max-width:768px) {
   .about-me {
-    padding: 90px 0;
+    padding: 90px 30px;
     max-width: 668px;
   }
 
@@ -94,9 +100,6 @@
 }
 
 @media screen and (max-width:585px) {
-  .about-me {
-    padding: 90px 0;
-  }
 
   .about-me__name {
     margin-top: 40px;

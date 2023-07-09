@@ -1,15 +1,20 @@
-.navigation__logo:hover {
+.navigation-profile {
+  display: flex;
+  column-gap: 364px;
+}
+
+.navigation-profile__logo:hover {
   opacity: 0.6;
 }
 
-.navigation__links {
+.navigation-profile__links {
   display: flex;
   column-gap: 16px;
   width: 212px;
   align-items: center;
 }
 
-.navigation__link-movies {
+.navigation-profile__link-movies {
   color: #FFF;
   font-size: 13px;
   font-weight: 500;
@@ -17,7 +22,7 @@
   text-decoration: none;
 }
 
-.navigation__link-saved-movies {
+.navigation-profile__link-saved-movies {
   color: #FFF;
   font-size: 13px;
   font-weight: 400;
@@ -25,13 +30,13 @@
   text-decoration: none;
 }
 
-.navigation__profile-container {
+.navigation-profile__profile-container {
   display: flex;
   column-gap: 13px;
   align-items: center;
 }
 
-.navigation__profile-link {
+.navigation-profile__profile-link {
   color: #FFF;
   font-size: 14px;
   font-weight: 500;
@@ -39,7 +44,7 @@
   text-decoration: none;
 }
 
-.navigation__icon-profile {
+.navigation-profile__icon-profile {
   width: 10.4px;
   height: 10.7px;
   border-radius: 6px;
@@ -47,14 +52,14 @@
   padding: 9.74px 9.81px 9.58px 9.81px;
 }
 
-.navigation__wrapper {
+.navigation-login-menu {
   display: flex;
   align-items: center;
   column-gap: 30px;
   margin-right: 70px;
 }
 
-.navigation__registration {
+.navigation-login-menu__registration {
   font-size: 12px;
   font-weight: 500;
   line-height: 16px;
@@ -63,7 +68,7 @@
   text-decoration: none;
 }
 
-.navigation__enter {
+.navigation-login-menu__enter {
   color: #000;
   width: 76px;
   height: 32px;
@@ -80,7 +85,7 @@
   align-items: center;
 }
 
-.navigation__menu {
+.navigation-profile__menu {
   width: 44px;
   height: 44px;
   display: none;
@@ -93,41 +98,48 @@
   cursor: pointer;
 }
 
-.navigation__menu:hover {
+.navigation-profile__menu:hover {
   opacity: 0.6;
 }
 
+
+@media screen and (max-width:1150px) {
+  .navigation-profile {
+    column-gap: 200px;
+  }
+}
+
 @media screen and (max-width:768px) {
-  .navigation__wrapper {
+  .navigation-login-menu {
     margin-right: 30px;
   }
 
-  .navigation__menu {
+  .navigation-profile__menu {
     display: block;
   }
 }
 
 @media screen and (max-width:320px) {
 
-  .navigation__wrapper {
+  .navigation-login-menu {
     margin-right: 14px;
     column-gap: 14px;
   }
 
-  .navigation__registration {
+  .navigation-login-menu__registration {
     font-size: 10px;
     line-height: 16px;
     text-decoration: none;
   }
 
-  .navigation__enter {
+  .navigation-login-menu__enter {
     width: 54px;
     height: 26px;
     font-size: 10px;
     line-height: 16px;
   }
 
-  .navigation__menu {
+  .navigation-profile__menu {
     width: 40px;
     height: 43px;
   }
@@ -135,8 +147,8 @@
 
 @media screen and (max-width: 768px) {
 
-  .navigation__links,
-  .navigation__profile-container {
+  .navigation-profile__links,
+  .navigation-profile__profile-container {
     display: none;
   }
 }

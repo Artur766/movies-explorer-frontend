@@ -1,4 +1,4 @@
-import film1 from "../images/pic__COLOR_pic (1).png";
+import film1 from "../images/pic__COLOR_pic.jpg";
 
 export const arrCard = [
   {

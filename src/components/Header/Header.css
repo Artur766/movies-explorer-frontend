@@ -14,6 +14,12 @@
   padding: 0;
 }
 
+@media screen and (max-width:1150px) {
+  .header_color_dark {
+    padding: 0 70px;
+  }
+}
+
 @media screen and (max-width:768px) {
   .header {
     padding-left: 30px;

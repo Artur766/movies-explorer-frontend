@@ -24,23 +24,25 @@ function Navigation() {
     (shownavigationRegister && (
       <>
         <Logo />
-        <nav className="navigation__wrapper">
-          <Link className="navigation__registration" to="/signup">Регистрация</Link>
-          <Link type='button' className="navigation__enter" to="/signin">Войти</Link>
+        <nav className="navigation-login-menu">
+          <Link className="navigation-login-menu__registration" to="/signup">Регистрация</Link>
+          <Link className="navigation-login-menu__enter" to="/signin">Войти</Link>
         </nav>
       </>)) ||
     (shownavigationProfile && (
       <>
         <Logo />
-        <button className='navigation__menu' onClick={handleMenu}  ></button>
-        {isOpen && <BurgerMenu closeMenu={closeMenu} />}
-        <div className='navigation__links'>
-          <Link className='navigation__link-movies' to="/movies">Фильмы</Link>
-          <Link className='navigation__link-saved-movies' to="/saved-movies">Сохранённые фильмы</Link>
-        </div>
-        <div className='navigation__profile-container'>
-          <Link className='navigation__profile-link' to="/profile">Аккаунт</Link>
-          <img className='navigation__icon-profile' alt='иконка профиля' src={iconProfile} />
+        <div className='navigation-profile'>
+          <button className='navigation-profile__menu' onClick={handleMenu}  ></button>
+          {isOpen && <BurgerMenu closeMenu={closeMenu} />}
+          <div className='navigation-profile__links'>
+            <Link className='navigation-profile__link-movies' to="/movies">Фильмы</Link>
+            <Link className='navigation-profile__link-saved-movies' to="/saved-movies">Сохранённые фильмы</Link>
+          </div>
+          <div className='navigation-profile__profile-container'>
+            <Link className='navigation-profile__profile-link' to="/profile">Аккаунт</Link>
+            <img className='navigation-profile__icon-profile' alt='иконка профиля' src={iconProfile} />
+          </div>
         </div>
       </>))
   )

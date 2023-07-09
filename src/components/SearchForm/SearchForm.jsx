@@ -13,9 +13,9 @@ function SearchForm() {
         <div className='serch-form__short'>
           <label className="serch-form__toggle">
             <input className="serch-form__toggle-checkbox" type="checkbox" />
-            <div className="serch-form__toggle-switch"></div>
+            <span className="serch-form__toggle-switch"></span>
           </label>
-          <p className='serch-form__text'>Короткометражки</p>
+          <h2 className='serch-form__text'>Короткометражки</h2>
         </div>
       </form>
     </section>

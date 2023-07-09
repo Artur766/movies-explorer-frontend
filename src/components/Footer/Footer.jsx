@@ -14,8 +14,8 @@ function Footer() {
       <div className='footer__container'>
         <p className='footer__copyright'>&#169;{(new Date()).getFullYear()}</p>
         <nav className='footer__navigation'>
-          <a href="https://practicum.yandex.ru/profile/web/" className='footer_link'>Яндекс.Практикум</a>
-          <a href="https://github.com/" className='footer_link'>Github</a>
+          <a href="https://practicum.yandex.ru/profile/web/" className='footer__link' target="_blank" rel="noopener noreferrer">Яндекс.Практикум</a>
+          <a href="https://github.com/" className='footer__link' target="_blank" rel="noopener noreferrer">Github</a>
         </nav>
       </div>
     </footer>)

@@ -44,7 +44,7 @@ function Profile() {
         <span className="profile__error profile__error_visable" >{errors["email"]}</span>
         <div className='profile__container-btn'>
           <button type='button' className='profile__button-edit'>Редактировать</button>
-          <Link type="button" to="/" className='profile__button-exit'>Выйти из аккаунта</Link>
+          <Link to="/" className='profile__button-exit'>Выйти из аккаунта</Link>
         </div>
       </form>
     </section>

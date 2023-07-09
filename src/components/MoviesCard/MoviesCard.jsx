@@ -16,7 +16,7 @@ function MoviesCard({ title, duration, image, classButtonDelete, buttonName }) {
         <p className='card__duration'>{duration}</p>
       </div>
       <img className='card__image' src={image} alt="картинка фильма" />
-      <button onClick={handleButtonSave} className={`card__button-save ${classButtonDelete} ${isSave ? "" : "card__button_saved"}`}>
+      <button onClick={handleButtonSave} className={`card__button-save ${classButtonDelete} ${isSave ? "" : "card__button-save_saved"}`}>
         {isSave ? "" : buttonName}
       </button>
     </div >

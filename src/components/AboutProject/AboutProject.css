@@ -79,6 +79,12 @@
   line-height: 17px;
 }
 
+@media screen and (max-width:1150px) {
+  .project {
+    padding: 110px 70px;
+  }
+}
+
 @media screen and (max-width:768px) {
 
   .project__title {
@@ -94,7 +100,7 @@
   }
 
   .project {
-    padding: 90px 0;
+    padding: 90px 30px;
   }
 }
 
@@ -111,9 +117,6 @@
     flex-direction: column;
   }
 }
-
-
-
 
 @media screen and (max-width:490px) {
   .project__progress_frontend {

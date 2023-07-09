@@ -16,7 +16,7 @@ function MoviesCardList({ classButtonDelete, buttonName, buttonStillShow }) {
           buttonName={buttonName}
         />
       ))}
-      {buttonStillShow ? <button className='card__button-still'>Еще</button> : ""}
+      {buttonStillShow ? <button className='card-list__button-still'>Еще</button> : ""}
     </section>
   )
 }
