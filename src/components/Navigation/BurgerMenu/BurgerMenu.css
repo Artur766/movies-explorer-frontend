@@ -1,0 +1,109 @@
+.burger {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  display: flex;
+  justify-content: end;
+  right: 0;
+  top: 0;
+  background-color: rgba(0, 0, 0, .3);
+  z-index: 1;
+}
+
+.burger__link:active,
+.burger__link:focus {
+  border-bottom: 2px solid #FFFFFF;
+}
+
+.burger__close-btn {
+  position: absolute;
+  top: 22.44px;
+  right: 22.44px;
+  width: 22px;
+  height: 22px;
+  padding: 0;
+  background: url(../../../images/krest.svg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  border: none;
+  cursor: pointer;
+}
+
+.burger__close-btn:hover {
+  opacity: 0.6;
+}
+
+.burger__list {
+  background-color: #202020;
+  width: 520px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.burger__links {
+  margin-top: 159px;
+  display: flex;
+  row-gap: 28px;
+  flex-direction: column;
+  align-items: center;
+}
+
+.burger__link {
+  color: #FFF;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: normal;
+  text-decoration: none;
+  padding-bottom: 4px;
+}
+
+.burger__profile-container {
+  margin-top: 621px;
+  display: flex;
+  justify-content: center;
+}
+
+.burger__profile-container {
+  display: flex;
+  column-gap: 13px;
+  align-items: center;
+}
+
+.burger__profile-link {
+  color: #FFF;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 16px;
+  text-decoration: none;
+  padding-bottom: 4px;
+}
+
+.burger__profile-link:active,
+.burger__profile-link:focus {
+  border-bottom: 2px solid #FFFFFF;
+}
+
+.burger__icon-profile {
+  width: 10.38px;
+  height: 10.67px;
+  border-radius: 6px;
+  background: #313131;
+  padding: 9.75px 9.81px 9.58px 9.81px;
+}
+
+@media screen and (max-width:320px) {
+  .burger__close-btn {
+    top: 13.44px;
+    right: 13.44px;
+  }
+
+  .burger__links {
+    margin-top: 144px;
+    row-gap: 24px;
+  }
+
+  .burger__profile-container {
+    margin-top: 444px;
+  }
+}
