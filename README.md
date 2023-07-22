@@ -3,4 +3,4 @@
 
 Ссылка на [сайт](https://artur766.github.io/movies-explorer-frontend/)
 
-Ссылка на [пул реквест]()
+Ссылка на [пул реквест](https://github.com/Artur766/movies-explorer-frontend/pull/2)
