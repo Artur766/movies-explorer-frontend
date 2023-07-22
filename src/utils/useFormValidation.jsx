@@ -12,15 +12,15 @@ export function useFormValidation(initialValues = {}) {
     setIsValid(form.checkValidity());
   }
 
-  function reset(initialValues = {}) {
+  const reset = React.useCallback((initialValues = {}) => {
     setValues(initialValues);
     setErrors({});
     setIsValid(false);
-  }
+  }, [setValues, setErrors, setIsValid]);
 
   function setValue(name, value) {
     setValues((oldValues) => ({ ...oldValues, [name]: value }));
   }
 
-  return { values, errors, isValid, handleChange, setValue, reset }
+  return { values, errors, isValid, handleChange, setValue, reset, setIsValid }
 }

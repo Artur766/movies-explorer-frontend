@@ -1,22 +1,19 @@
 import React from 'react';
-import { arrCard } from '../../utils/constants';
 import MoviesCard from '../MoviesCard/MoviesCard';
 import "./MoviesCardList.css"
 
-function MoviesCardList({ classButtonDelete, buttonName, buttonStillShow }) {
+function MoviesCardList({ children, movies, isSave, classButtonDeleteShow }) {
   return (
     <section className='card-list'>
-      {arrCard.map((item, index) => (
+      {movies.map((item) => (
         <MoviesCard
-          key={index}
-          title={item.title}
-          duration={item.duration}
-          image={item.image}
-          classButtonDelete={classButtonDelete}
-          buttonName={buttonName}
+          key={item.id ? item.id : item._id}
+          card={item}
+          classButtonDeleteShow={classButtonDeleteShow}
+          isSave={isSave}
         />
       ))}
-      {buttonStillShow ? <button className='card-list__button-still'>Еще</button> : ""}
+      {children}
     </section>
   )
 }

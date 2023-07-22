@@ -6,12 +6,20 @@ import AboutMe from '../AboutMe/AboutMe'
 import Portfolio from '../Portfolio/Portfolio'
 
 function Main() {
+  const sectionRef = React.useRef(null);
+
+  function handleScroll() {
+    if (sectionRef.current) {
+      sectionRef.current.scrollIntoView({ behavior: "smooth" });
+    }
+  }
+
   return (
     <main>
-      <Promo />
+      <Promo onScroll={handleScroll} />
       <AboutProject />
       <Techs />
-      <AboutMe />
+      <AboutMe forwardRef={sectionRef} />
       <Portfolio />
     </main>
   )

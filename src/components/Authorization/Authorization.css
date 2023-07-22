@@ -26,6 +26,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  position: relative;
 }
 
 .authorization__label {
@@ -113,6 +114,16 @@
 
 .authorization__submit-btn_disablded:hover {
   opacity: 0.2;
+}
+
+.authorization__error-submit {
+  bottom: 100px;
+  position: absolute;
+  margin: 0;
+  color: #FF004C;
+  font-size: 11px;
+  font-weight: 400;
+  line-height: normal;
 }
 
 

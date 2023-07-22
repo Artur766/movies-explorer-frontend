@@ -2,9 +2,10 @@ import React from 'react';
 import "./AboutMe.css";
 import photo from "../../images/photo_2023-06-18_12-57-35.jpg";
 
-function AboutMe() {
+function AboutMe({ forwardRef }) {
+
   return (
-    <section className='about-me'>
+    <section className='about-me' ref={forwardRef}>
       <h2 className='about-me__title'>Студент</h2>
       <article className='about-me__container'>
         <div className='about-me__wrapper'>
