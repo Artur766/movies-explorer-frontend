@@ -48,7 +48,7 @@ function App() {
         .catch(err => console.log(err))
         .finally(() => setIsTokenCheck(true));
     } else {
-      setIsTokenCheck(false);
+      setIsTokenCheck(true);
     }
   }, [setLoggedIn]);
 
