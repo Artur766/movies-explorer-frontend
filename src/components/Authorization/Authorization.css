@@ -1,7 +1,7 @@
 .authorization {
   max-width: 396px;
   margin: 0 auto;
-  padding: 70px 0 0;
+  padding: 70px 0;
 }
 
 .authorization__logo {
@@ -136,7 +136,7 @@
 @media screen and (max-width:420px) {
   .authorization {
     max-width: 260px;
-    padding-top: 56px;
+    padding: 56px;
     display: flex;
     flex-direction: column;
     align-items: center;
