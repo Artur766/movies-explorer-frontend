@@ -15,6 +15,9 @@ function Portfolio() {
         <li className='portfolio__project'>
           <a href="https://github.com/Artur766/react-mesto-api-full-gha" className='portfolio__link' target="_blank" rel="noopener noreferrer">Одностраничное приложение</a>
         </li>
+        <li className='portfolio__project'>
+          <a href="https://github.com/Artur766/food-store" className='portfolio__link' target="_blank" rel="noopener noreferrer">Pet-project: food-store</a>
+        </li>
       </ul>
     </section>
   )
