@@ -18,6 +18,9 @@ function Portfolio() {
         <li className='portfolio__project'>
           <a href="https://github.com/Artur766/food-store" className='portfolio__link' target="_blank" rel="noopener noreferrer">Pet-project: food-store</a>
         </li>
+        <li className='portfolio__project'>
+          <a href="https://github.com/Artur766/movies-explorer-frontend" className='portfolio__link' target="_blank" rel="noopener noreferrer">Дипломная работа: MoviesFilms</a>
+        </li>
       </ul>
     </section>
   )
