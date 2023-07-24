@@ -15,16 +15,19 @@
 
 .header_color_dark {
   background-color: transparent;
-  padding: 0;
 }
 
 @media screen and (max-width:1150px) {
-  .header_color_dark {
+  /* .header__container {
     padding: 0;
-  }
+  } */
 }
 
 @media screen and (max-width:768px) {
+  .header__container {
+    padding: 0;
+  }
+
   .header {
     padding-left: 30px;
     padding-right: 30px;
