@@ -1,23 +1,26 @@
 .header {
+  background-color: #073042;
+}
+
+.header__container {
   padding-left: 70px;
   padding-right: 70px;
   margin: 0 auto;
-  background-color: #073042;
   height: 74px;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  max-width: 1140px;
 }
 
 .header_color_dark {
-  max-width: 1140px;
   background-color: transparent;
   padding: 0;
 }
 
 @media screen and (max-width:1150px) {
   .header_color_dark {
-    padding: 0 70px;
+    padding: 0;
   }
 }
 

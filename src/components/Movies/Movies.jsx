@@ -11,6 +11,7 @@ import { useFormValidation } from "../../utils/useFormValidation";
 
 
 function Movies() {
+  const [allMovies, setAllMovies] = React.useState([]);
   const { values } = useFormValidation();
   const [nothingFound, setNothingFound] = React.useState(false);
   const [showButtonStill, setShowButtonStill] = React.useState(false);
@@ -59,6 +60,13 @@ function Movies() {
       localStorage.removeItem('searchResults');
       localStorage.removeItem('movies');
     }
+    setIsLoading(true);
+    getMovies()
+      .then(dataMovies => {
+        setAllMovies(dataMovies);
+      })
+      .catch(err => console.log(err))
+      .finally(() => setIsLoading(false))
   }, []);
 
   React.useEffect(() => {
@@ -75,30 +83,25 @@ function Movies() {
 
   function handleSerch(e) {
     e.preventDefault();
-    setIsLoading(true);
-    getMovies()
-      .then(dataMovies => {
-        const filteredMovies = filterMoviesSerch(dataMovies, searchResults.query, searchResults.isShort);
 
-        setMovies(filteredMovies);
-        const newSearchResults = {
-          ...searchResults,
-          movies: filteredMovies.slice(0, cardsPerRow * 4)
-        };
+    const filteredMovies = filterMoviesSerch(allMovies, searchResults.query, searchResults.isShort);
 
-        setSearchResults(newSearchResults);
+    setMovies(filteredMovies);
+    const newSearchResults = {
+      ...searchResults,
+      movies: filteredMovies.slice(0, cardsPerRow * 4)
+    };
 
-        // проверяем существуют ли фильмы по фильтрации 
-        if (filteredMovies.length === 0) {
-          setNothingFound(true);
-        } else {
-          setNothingFound(false);
-        }
-        localStorage.setItem("searchResults", JSON.stringify(newSearchResults));
-        localStorage.setItem("movies", JSON.stringify(filteredMovies));
-      })
-      .catch(err => console.log(err))
-      .finally(() => setIsLoading(false));
+    setSearchResults(newSearchResults);
+
+    // проверяем существуют ли фильмы по фильтрации 
+    if (filteredMovies.length === 0) {
+      setNothingFound(true);
+    } else {
+      setNothingFound(false);
+    }
+    localStorage.setItem("searchResults", JSON.stringify(newSearchResults));
+    localStorage.setItem("movies", JSON.stringify(filteredMovies));
   }
 
   function handleQuerySerch(e) {

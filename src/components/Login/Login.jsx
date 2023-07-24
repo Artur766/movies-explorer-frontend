@@ -4,17 +4,24 @@ import { useFormValidation } from "../../utils/useFormValidation";
 import * as auth from "../../utils/auth";
 import { useNavigate } from 'react-router-dom';
 import Preloader from '../Preloader/Preloader';
+import { CurrentUserContext } from '../../context/CurrentUserContext';
 
 function Login({ handleLogin }) {
   const [isError, setIsError] = React.useState("");
   const [isLoading, setIsLoading] = React.useState(false);
   const { values, errors, isValid, handleChange } = useFormValidation();
+  const { currentUser } = React.useContext(CurrentUserContext);
+
+  const navigate = useNavigate();
 
   function getErrorClassName(name) {
     return `authorization__input ${errors[name] && "authorization__input_type_error"}`
   }
-
-  const navigate = useNavigate();
+  React.useEffect(() => {
+    if (currentUser.email) {
+      navigate("/");
+    }
+  }, [currentUser, navigate]);
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -52,6 +59,7 @@ function Login({ handleLogin }) {
           type="email"
           name='email'
           required
+          pattern='[a-z0-9]+@[a-z]+\.{1,1}[a-z]{2,}'
         />
         <span className="authorization__error authorization__error_visable" >{errors["email"]}</span>
       </label>
@@ -62,8 +70,8 @@ function Login({ handleLogin }) {
           value={values["password"] || ''}
           className={getErrorClassName("password")}
           name='password'
-          minLength={7}
-          maxLength={20}
+          minLength={8}
+          maxLength={24}
           required
         />
         <span className="authorization__error authorization__error_visable" >{errors["password"]}</span>

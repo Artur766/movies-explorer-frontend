@@ -4,19 +4,26 @@ import { useFormValidation } from "../../utils/useFormValidation";
 import * as auth from "../../utils/auth";
 import { useNavigate } from 'react-router-dom';
 import Preloader from '../Preloader/Preloader';
+import { CurrentUserContext } from '../../context/CurrentUserContext';
 
 function Register({ handleLogin }) {
 
   const [isError, setIsError] = React.useState("");
   const [isLoading, setIsLoading] = React.useState(false);
-
   const { values, errors, isValid, handleChange } = useFormValidation();
+  const { currentUser } = React.useContext(CurrentUserContext);
 
   function getErrorClassName(name) {
     return `authorization__input ${errors[name] && "authorization__input_type_error"}`
   }
 
   const navigate = useNavigate();
+
+  React.useEffect(() => {
+    if (currentUser.email) {
+      navigate("/");
+    }
+  }, [currentUser, navigate]);
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -30,11 +37,13 @@ function Register({ handleLogin }) {
         if (data.email) {
           setIsError("");
           return auth.authorize(values["email"], values["password"])
+            .then(data => {
+              if (data.token) {
+                handleLogin();
+                navigate("/movies", { replace: true });
+              }
+            })
         }
-      })
-      .then(() => {
-        handleLogin();
-        navigate("/movies", { replace: true });
       })
       .catch((err) => setIsError(err.message))
       .finally(() => setIsLoading(false));
@@ -70,6 +79,7 @@ function Register({ handleLogin }) {
           type="email"
           name='email'
           required
+          pattern='[a-z0-9]+@[a-z]+\.{1,1}[a-z]{2,}'
         />
         <span className="authorization__error authorization__error_visable" >{errors["email"]}</span>
       </label>
@@ -80,8 +90,8 @@ function Register({ handleLogin }) {
           value={values["password"] || ''}
           className={getErrorClassName("password")}
           name='password'
-          minLength={7}
-          maxLength={20}
+          minLength={8}
+          maxLength={24}
           required
         />
         <span className="authorization__error authorization__error_visable" >{errors["password"]}</span>

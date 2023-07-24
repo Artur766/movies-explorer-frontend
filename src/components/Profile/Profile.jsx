@@ -87,6 +87,7 @@ function Profile({ handleSignOut }) {
             onChange={handleChange}
             value={values["email"] || ''}
             disabled={!isEditing}
+            pattern='[a-z0-9]+@[a-z]+\.{1,1}[a-z]{2,}'
           />
         </label>
         <span className="profile__error profile__error_visable" >{errors["email"]}</span>

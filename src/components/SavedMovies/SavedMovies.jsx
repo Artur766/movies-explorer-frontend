@@ -10,29 +10,27 @@ import { useFormValidation } from "../../utils/useFormValidation";
 
 
 function SavedMovies({ movies }) {
+  const [displayedMovies, setDisplayedMovies] = React.useState(movies);
   const [nothingFound, setNothingFound] = React.useState(false);
-  const { setSavedMovies } = React.useContext(SavedMoviesContext);
+  const { setSavedMovies, savedMovies } = React.useContext(SavedMoviesContext);
   const [isLoading, setIsLoading] = React.useState(false);
   const { values } = useFormValidation();
   const [searchResults, setSearchResults] = React.useState({
     query: values["serch"] || '',
-    movies: [],
     isShort: false,
   });
+
+
 
   React.useEffect(() => {
     setIsLoading(true);
     mainApi.getSavedMovies()
-      .then((data) => {
-        setSavedMovies(data);
-        setSearchResults({
-          ...searchResults,
-          movies: data
-        })
+      .then(movies => {
+        setSavedMovies(movies);
       })
       .catch(err => console.log(err))
       .finally(() => setIsLoading(false));
-  }, [])
+  }, [setSavedMovies])
 
 
   function handleQuerySerch(ev) {
@@ -40,13 +38,17 @@ function SavedMovies({ movies }) {
       ...searchResults,
       query: ev.target.value,
     })
-
   }
+
+  React.useEffect(() => {
+    setDisplayedMovies(savedMovies);
+  }, [savedMovies]);
 
   function handleSerch(e) {
     e.preventDefault();
-    const filteredMovies = filterMoviesSerch(searchResults.movies, searchResults.query);
-    setSavedMovies(filteredMovies);
+    const filteredMovies = filterMoviesSerch(savedMovies, searchResults.query);
+
+    setDisplayedMovies(filteredMovies);
 
     if (filteredMovies.length === 0) {
       setNothingFound(true);
@@ -56,8 +58,8 @@ function SavedMovies({ movies }) {
   }
 
   function handleToggle() {
-    const filteredMoviesChekbox = filterSavedMoviesChekbox(searchResults.movies, !searchResults.isShort);
-    setSavedMovies(filteredMoviesChekbox);
+    const filteredMoviesChekbox = filterSavedMoviesChekbox(savedMovies, !searchResults.isShort);
+    setDisplayedMovies(filteredMoviesChekbox);
     setSearchResults({
       ...searchResults,
       isShort: !searchResults.isShort,
@@ -80,7 +82,7 @@ function SavedMovies({ movies }) {
           :
           <MoviesCardList
             classButtonDeleteShow={true}
-            movies={movies}>
+            movies={displayedMovies}>
             {nothingFound && <h1 className='card-list__title-zero-movie'>Ничего не найдено</h1>}
           </MoviesCardList>
       }

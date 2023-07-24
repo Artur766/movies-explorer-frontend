@@ -10,7 +10,9 @@ function Header({ loggedIn }) {
   return ((
     showHeader &&
     <header className={location.pathname === "/" ? "header" : "header header_color_dark"} >
-      <Navigation loggedIn={loggedIn} />
+      <div className='header__container'>
+        <Navigation loggedIn={loggedIn} />
+      </div>
     </header >
   )
   )

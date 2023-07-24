@@ -48,7 +48,7 @@ function MoviesCard({ card, classButtonDeleteShow, }) {
     <div className='card'>
       <div className='card__container'>
         <h2 className='card__title'>{card.nameRU}</h2>
-        <p className='card__duration'>{card.duration}</p>
+        <p className='card__duration'>{card.duration} минут</p>
       </div>
       <a href={card.trailerLink} target="_blank" rel="noopener noreferrer"><img className='card__image' src={card.image.url ? `https://api.nomoreparties.co/${card.image.url}` : card.image} alt="картинка фильма" /></a>
       {
