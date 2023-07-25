@@ -16,25 +16,32 @@ import mainApi from '../../utils/MainApi';
 import * as auth from "../../utils/auth";
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
 import Preloader from '../Preloader/Preloader';
+import getMovies from '../../utils/MoviesApi';
 
 function App() {
 
+  const [allMovies, setAllMovies] = React.useState([]);
   const [currentUser, setCurrentUser] = React.useState({});
   const [loggedIn, setLoggedIn] = React.useState(false);
   const [savedMovies, setSavedMovies] = React.useState([]);
   const [isTokenCheck, setIsTokenCheck] = React.useState(false);
+  const [isLoading, setIsLoading] = React.useState(false);
 
   //При авторизации получаем данные о пользователе и все карточки
   React.useEffect(() => {
     if (loggedIn) {
-      mainApi.getUserInfo()
-        .then(dataUser => {
+      const promises = [mainApi.getUserInfo(), getMovies(), mainApi.getSavedMovies()]
+      setIsLoading(true)
+      Promise.all(promises)
+        .then(([dataUser, dataAllMovies, savedMovies]) => {
+          setSavedMovies(savedMovies);
+          setAllMovies(dataAllMovies);
           setCurrentUser(dataUser);
         })
         .catch(err => console.log(err))
+        .finally(() => setIsLoading(false));
     }
   }, [loggedIn]);
-
 
   React.useEffect(() => {
     const jwt = localStorage.getItem("jwt");
@@ -69,7 +76,6 @@ function App() {
   }
 
   return (
-
     <div className="App">{
       isTokenCheck ?
         <CurrentUserContext.Provider value={{ currentUser, setCurrentUser }}>
@@ -79,12 +85,15 @@ function App() {
               <Route path="/" element={<Main />} />
               <Route path="/movies" element={
                 <ProtectedRoute
+                  isLoading={isLoading}
+                  allMovies={allMovies}
                   element={Movies}
                   loggedIn={loggedIn}
                 />
               } />
               <Route path="/saved-movies" element={
                 <ProtectedRoute
+                  isLoading={isLoading}
                   movies={savedMovies}
                   element={SavedMovies}
                   loggedIn={loggedIn}

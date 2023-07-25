@@ -2,7 +2,6 @@ import React from 'react';
 import SearchForm from '../SearchForm/SearchForm';
 import MoviesCardList from '../MoviesCardList/MoviesCardList';
 import "./Movies.css";
-import getMovies from '../../utils/MoviesApi';
 import Preloader from '../Preloader/Preloader';
 import Modal from '../Modal/Modal';
 import cross from "../../images/unionСross.svg"
@@ -10,13 +9,11 @@ import { filterMoviesChekbox, filterMoviesSerch } from '../../utils/filterMovies
 import { useFormValidation } from "../../utils/useFormValidation";
 
 
-function Movies() {
-  const [allMovies, setAllMovies] = React.useState([]);
+function Movies({ allMovies, isLoading }) {
   const { values } = useFormValidation();
   const [nothingFound, setNothingFound] = React.useState(false);
   const [showButtonStill, setShowButtonStill] = React.useState(false);
   const [movies, setMovies] = React.useState([]);
-  const [isLoading, setIsLoading] = React.useState(false);
   const [isOpen, setIsOpen] = React.useState(false);
   const [searchResults, setSearchResults] = React.useState({
     query: values["serch"] || '',
@@ -47,6 +44,7 @@ function Movies() {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
+
   React.useEffect(() => {
     const searchResultsString = localStorage.getItem('searchResults');
     const moviesString = localStorage.getItem("movies");
@@ -60,14 +58,8 @@ function Movies() {
       localStorage.removeItem('searchResults');
       localStorage.removeItem('movies');
     }
-    setIsLoading(true);
-    getMovies()
-      .then(dataMovies => {
-        setAllMovies(dataMovies);
-      })
-      .catch(err => console.log(err))
-      .finally(() => setIsLoading(false))
   }, []);
+
 
   React.useEffect(() => {
     if (searchResults.isShort) {
@@ -158,20 +150,18 @@ function Movies() {
         checked={searchResults.isShort}
         onToggle={handleToggle}
       />
-      {
-        isLoading
-          ?
-          <Preloader />
-          :
-          <MoviesCardList movies={searchResults.movies} >
-            {
-              nothingFound && <h1 className='card-list__nothing-found' >Ничего не найдено</h1>
-            }
-            {
-              showButtonStill && <button className='card-list__button-still' type='button' onClick={handleShowMore}>Еще</button>
-            }
-          </MoviesCardList>
-      }
+      {isLoading
+        ?
+        <Preloader />
+        :
+        <MoviesCardList movies={searchResults.movies} >
+          {
+            nothingFound && <h1 className='card-list__nothing-found' >Ничего не найдено</h1>
+          }
+          {
+            showButtonStill && <button className='card-list__button-still' type='button' onClick={handleShowMore}>Еще</button>
+          }
+        </MoviesCardList>}
     </main >
   )
 }

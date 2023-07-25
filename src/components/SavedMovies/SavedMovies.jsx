@@ -2,35 +2,22 @@ import React from 'react';
 import MoviesCardList from '../MoviesCardList/MoviesCardList';
 import SearchForm from '../SearchForm/SearchForm';
 import "./SavedMovies.css"
-import mainApi from '../../utils/MainApi';
 import { SavedMoviesContext } from '../../context/SavedMoviesContext';
 import Preloader from '../Preloader/Preloader';
 import { filterMoviesSerch, filterSavedMoviesChekbox } from '../../utils/filterMovies';
 import { useFormValidation } from "../../utils/useFormValidation";
 
 
-function SavedMovies({ movies }) {
+function SavedMovies({ movies, isLoading }) {
   const [displayedMovies, setDisplayedMovies] = React.useState(movies);
   const [nothingFound, setNothingFound] = React.useState(false);
-  const { setSavedMovies, savedMovies } = React.useContext(SavedMoviesContext);
-  const [isLoading, setIsLoading] = React.useState(false);
+  const { savedMovies } = React.useContext(SavedMoviesContext);
   const { values } = useFormValidation();
   const [searchResults, setSearchResults] = React.useState({
     query: values["serch"] || '',
+    movies: [],
     isShort: false,
   });
-
-
-
-  React.useEffect(() => {
-    setIsLoading(true);
-    mainApi.getSavedMovies()
-      .then(movies => {
-        setSavedMovies(movies);
-      })
-      .catch(err => console.log(err))
-      .finally(() => setIsLoading(false));
-  }, [setSavedMovies])
 
 
   function handleQuerySerch(ev) {

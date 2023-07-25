@@ -5,8 +5,11 @@ import "./Profile.css";
 import { CurrentUserContext } from '../../context/CurrentUserContext';
 import mainApi from '../../utils/MainApi';
 import Preloader from '../Preloader/Preloader';
+import Modal from "../Modal/Modal"
+import checkMark from "../../images/unionСheckmark.svg"
 
 function Profile({ handleSignOut }) {
+  const [isModal, setIsModal] = React.useState(false);
   const { currentUser, setCurrentUser } = React.useContext(CurrentUserContext);
   const [isEditing, setIsEditing] = React.useState(false);
   const [isLoading, setIsLoading] = React.useState(false);
@@ -45,6 +48,7 @@ function Profile({ handleSignOut }) {
         setIsError("");
         setCurrentUser(newDataUser);
         setIsEditing(false);
+        setIsModal(true);
       })
       .catch(err => {
         setIsError(err.message)
@@ -58,9 +62,14 @@ function Profile({ handleSignOut }) {
     return `profile__input ${errors[name] && "profile__input_type_error"}`
   }
 
+  function handleModalClose() {
+    setIsModal(false)
+  }
+
   return (
     <section className='profile'>
       <h2 className='profile__title'>{`Привет, ${currentUser.name || ""}!`}</h2>
+      <Modal title="Данные успешно сохранены." image={checkMark} isOpen={isModal} onClose={handleModalClose} />
       <form className='profile__form' onSubmit={handleSubmit} noValidate  >
         <label className='profile__label'>
           <span className='profile__input-span'>Имя</span>
