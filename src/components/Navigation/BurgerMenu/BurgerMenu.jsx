@@ -10,12 +10,12 @@ function BurgerMenu({ closeMenu }) {
       <button className='burger__close-btn' type="button" onClick={closeMenu}></button>
       <div className='burger__list'>
         <div className='burger__links'>
-          <Link className="burger__link" to="/">Главная</Link>
-          <Link className='burger__link' to="/movies">Фильмы</Link>
-          <Link className='burger__link' to="/saved-movies">Сохранённые фильмы</Link>
+          <Link className="burger__link" to="/" onClick={closeMenu}>Главная</Link>
+          <Link className='burger__link' to="/movies" onClick={closeMenu}>Фильмы</Link>
+          <Link className='burger__link' to="/saved-movies" onClick={closeMenu}>Сохранённые фильмы</Link>
         </div>
         <div className='burger__profile-container'>
-          <Link className='burger__profile-link' to="/profile">Аккаунт</Link>
+          <Link className='burger__profile-link' to="/profile" onClick={closeMenu}>Аккаунт</Link>
           <img className='burger__icon-profile' alt='иконка профиля' src={iconProfile} />
         </div>
       </div>

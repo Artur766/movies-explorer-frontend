@@ -1,12 +1,17 @@
 .promo {
   background-color: #073042;
   padding: 75px 0;
-  display: flex;
-  justify-content: space-between;
 }
 
 .promo__wrapper {
   margin-left: 70px;
+}
+
+.promo__contianer {
+  max-width: 1280px;
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
 }
 
 .promo__title {
@@ -54,6 +59,9 @@
 @media screen and (max-width:1000px) {
   .promo {
     padding: 140px 0 76px 0;
+  }
+
+  .promo__contianer {
     flex-direction: column-reverse;
     align-items: center;
   }

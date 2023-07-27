@@ -153,6 +153,16 @@
   border-radius: 0 9px 9px 0;
 }
 
+.serch-form__error {
+  left: 20%;
+  bottom: 4px;
+  position: absolute;
+  color: red;
+  font-weight: normal;
+  font-size: 13px;
+  line-height: 16px;
+}
+
 @media screen and (max-width:1150px) {
   .serch-form {
     padding: 80px 70px 109px;
@@ -203,6 +213,12 @@
 
   .serch-form__border {
     display: none;
+  }
+
+  .serch-form__error {
+
+    font-size: 11px;
+    line-height: 12px;
   }
 }
 

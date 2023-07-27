@@ -3,12 +3,18 @@ import Navigation from '../Navigation/Navigation';
 import { useLocation } from 'react-router-dom';
 import "./Header.css"
 
-function Header() {
+function Header({ loggedIn }) {
   const location = useLocation(); // получаем текущий путь
-  return (
-    <header className={location.pathname === "/" ? "header" : "header header_color_dark"}  >
-      <Navigation />
-    </header>
+  const showHeader = ['/', '/movies', "/saved-movies", "/profile"].includes(location.pathname);
+
+  return ((
+    showHeader &&
+    <header className={location.pathname === "/" ? "header" : "header header_color_dark"} >
+      <div className='header__container'>
+        <Navigation loggedIn={loggedIn} />
+      </div>
+    </header >
+  )
   )
 }
 

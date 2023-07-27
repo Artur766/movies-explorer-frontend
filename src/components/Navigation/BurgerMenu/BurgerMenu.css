@@ -62,13 +62,10 @@
   margin-top: 621px;
   display: flex;
   justify-content: center;
-}
-
-.burger__profile-container {
-  display: flex;
   column-gap: 13px;
   align-items: center;
 }
+
 
 .burger__profile-link {
   color: #FFF;
@@ -90,6 +87,18 @@
   border-radius: 6px;
   background: #313131;
   padding: 9.75px 9.81px 9.58px 9.81px;
+}
+
+@media screen and (max-width:768px) {
+  .burger__profile-container {
+    margin-top: 370px;
+  }
+}
+
+@media screen and (max-width:500px) {
+  .burger__profile-container {
+    margin-top: 300px;
+  }
 }
 
 @media screen and (max-width:320px) {

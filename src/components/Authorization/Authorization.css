@@ -1,7 +1,7 @@
 .authorization {
   max-width: 396px;
   margin: 0 auto;
-  padding: 70px 0 0;
+  padding: 70px 0;
 }
 
 .authorization__logo {
@@ -26,6 +26,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  position: relative;
 }
 
 .authorization__label {
@@ -115,6 +116,16 @@
   opacity: 0.2;
 }
 
+.authorization__error-submit {
+  bottom: 100px;
+  position: absolute;
+  margin: 0;
+  color: #FF004C;
+  font-size: 11px;
+  font-weight: 400;
+  line-height: normal;
+}
+
 
 @media screen and (max-width:768px) {
   .authorization {
@@ -125,7 +136,7 @@
 @media screen and (max-width:420px) {
   .authorization {
     max-width: 260px;
-    padding-top: 56px;
+    padding: 56px;
     display: flex;
     flex-direction: column;
     align-items: center;

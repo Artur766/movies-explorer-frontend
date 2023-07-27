@@ -17,10 +17,14 @@
 }
 
 .card__title {
+  max-width: 250px;
   font-size: 15px;
   font-weight: 500;
   line-height: 18px;
   margin: 0;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 .card__duration {
